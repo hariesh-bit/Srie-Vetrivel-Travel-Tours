@@ -164,6 +164,18 @@
     }
     .stat-num span { color: var(--gold); }
     .stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+    
+    /* Cursor glow */
+    .cursor-glow {
+       position: fixed;
+       width: 40px;
+       height: 40px;
+       border-radius: 50%;
+       pointer-events: none;
+       transform: translate(-50%, -50%);
+       background: radial-gradient(circle, rgba(255, 165, 10, 0.452) 0%, transparent 70%);
+       z-index: 9999;
+    } */
 
     /* Slider controls */
     .slider-controls {
@@ -290,9 +302,17 @@
       background-image: repeating-linear-gradient(0deg, rgba(244,185,66,0.4) 0, rgba(244,185,66,0.4) 1px, transparent 0, transparent 24px),
                         repeating-linear-gradient(90deg, rgba(244,185,66,0.4) 0, rgba(244,185,66,0.4) 1px, transparent 0, transparent 24px);
     }
-    .dest-emoji {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      font-size: 4rem; opacity: 0.25;
+    .dest-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+    .dest-card:hover .dest-img {
+      opacity: 1;
     }
     .dest-card:first-child .dest-emoji { font-size: 6rem; }
     .dest-card:first-child { min-height: 440px; }
@@ -529,8 +549,8 @@
       <div class="stat-label">Years Experience</div>
     </div>
     <div class="hero-stat">
-      <div class="stat-num">8K<span>+</span></div>
-      <div class="stat-label">Happy Travellers</div>
+      <div class="stat-num">80K<span>+</span></div>
+      <div class="stat-label">Happy Customers</div>
     </div>
     <div class="hero-stat">
       <div class="stat-num">120<span>+</span></div>
@@ -612,108 +632,117 @@
 </section>
 
 <!-- DESTINATIONS -->
-<section id="destinations">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="dest-header">
-      <div>
-        <div class="section-tag">Popular Routes</div>
-        <h2 class="section-title">Top Destinations</h2>
-      </div>
-      <a href="#contact" class="btn-secondary">View All</a>
-    </div>
-    <div class="dest-grid fade-in">
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🛕</div>
-        <div class="dest-info">
-          <div class="dest-name">Madurai</div>
-          <div class="dest-sub">Temple City · Cultural Heart of Tamil Nadu</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">☁️</div>
-        <div class="dest-info">
-          <div class="dest-name">Kodaikanal</div>
-          <div class="dest-sub">Princess of Hillstations</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🌊</div>
-        <div class="dest-info">
-          <div class="dest-name">Kanyakumari</div>
-          <div class="dest-sub">Land's End · Sunrise Sunsets</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🌿</div>
-        <div class="dest-info">
-          <div class="dest-name">Munnar</div>
-          <div class="dest-sub">Kashmir of South India</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🏖️</div>
-        <div class="dest-info">
-          <div class="dest-name">Rameswaram</div>
-          <div class="dest-sub">Island Pilgrim Town</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🛕</div>
-        <div class="dest-info">
-          <div class="dest-name">Thanjavur</div>
-          <div class="dest-sub">Capital of Chola Dynasty</div>
-        </div>
-      </div>
-            <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🏖️</div>
-        <div class="dest-info">
-          <div class="dest-name">Kaaraikudi</div>
-          <div class="dest-sub">Heart of Chettinadu</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🌿</div>
-        <div class="dest-info">
-          <div class="dest-name">Ooty</div>
-          <div class="dest-sub">Queen of Nilgiris</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🛕</div>
-        <div class="dest-info">
-          <div class="dest-name">Thiruvananthapuram</div>
-          <div class="dest-sub">Evergreen City of India</div>
-        </div>
-      </div>
-      <div class="dest-card">
-        <div class="dest-bg"></div>
-        <div class="dest-pattern"></div>
-        <div class="dest-emoji">🏖️</div>
-        <div class="dest-info">
-          <div class="dest-name">Kovalam</div>
-          <div class="dest-sub">Tropical Paradise</div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section id="destinations"> 
+  <div style="max-width:1200px;margin:0 auto;"> 
+    <div class="dest-header"> 
+      <div> 
+        <div class="section-tag">Popular Routes</div> 
+        <h2 class="section-title">Top Destinations</h2> 
+      </div> 
+      <a href="#contact" class="btn-secondary">View All</a> 
+    </div> 
+    <div class="dest-grid fade-in"> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/madurai.jpg" alt="Madurai"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Madurai</div> 
+          <div class="dest-sub">Temple City · Cultural Heart of Tamil Nadu</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/kodaikanal.jpg" alt="Kodaikanal"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Kodaikanal</div> 
+          <div class="dest-sub">Princess of Hillstations</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/kanyakumari.jpg" alt="Kanyakumari"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Kanyakumari</div> 
+          <div class="dest-sub">Land's End · Sunrise Sunsets</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/munnar.jpg" alt="Munnar"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Munnar</div> 
+          <div class="dest-sub">Kashmir of South India</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/rameswaram.jpg" alt="Rameswaram"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Rameswaram</div> 
+          <div class="dest-sub">Island Pilgrim Town</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/thanjavur.jpg" alt="Thanjavur"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Thanjavur</div> 
+          <div class="dest-sub">Capital of Chola Dynasty</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/karaikudi.jpg" alt="Karaikudi"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Karaikudi</div> 
+          <div class="dest-sub">Heart of Chettinadu</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/ooty.jpg" alt="Ooty"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Ooty</div> 
+          <div class="dest-sub">Queen of Nilgiris</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/thiruvananthapuram.jpg" alt="Thiruvananthapuram"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Thiruvananthapuram</div> 
+          <div class="dest-sub">Evergreen City of India</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/kovalam.jpg" alt="Kovalam"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Kovalam</div> 
+          <div class="dest-sub">Tropical Paradise</div> 
+        </div> 
+      </div> 
+      <div class="dest-card"> 
+        <div class="dest-bg"></div> 
+        <div class="dest-pattern"></div> 
+        <img class="dest-img" src="images/alleppey.jpg" alt="Alleppey"> 
+        <div class="dest-info"> 
+          <div class="dest-name">Alleppey</div> 
+          <div class="dest-sub">Venice of the East</div> 
+        </div> 
+      </div> 
+    </div> 
+  </div> 
 </section>
 
 <!-- WHY US -->
@@ -1034,6 +1063,35 @@
   document.querySelector('.submit-btn').addEventListener('click', () => {
     alert('Thank you for your enquiry! We will contact you within 24 hours. 🙏');
   });
+</script>
+<div class="cursor-glow" id="cursorGlow"></div>
+<script>
+  const glow = document.getElementById('cursorGlow');
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let glowX = mouseX;
+  let glowY = mouseY;
+
+  const speed = 0.8; // lower = more fluid/laggy, higher = snappier
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    // Lerp (linear interpolation) — smoothly chases the cursor
+    glowX += (mouseX - glowX) * speed;
+    glowY += (mouseY - glowY) * speed;
+
+    glow.style.left = glowX + 'px';
+    glow.style.top = glowY + 'px';
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
 </script>
 </body>
 </html>
