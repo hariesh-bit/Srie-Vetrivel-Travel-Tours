@@ -1101,19 +1101,30 @@
   animate();
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script>
-    function sendEnquiry() {
-      emailjs.sendForm("service_4ie1aiv", "template_z65tr4k", "#enquiryForm")
-        .then(() => {
-          alert("Enquiry sent! We'll get back to you soon.");
-          document.getElementById("enquiryForm").reset();
-        })
-        .catch((error) => {
-          alert("Something went wrong. Please try again.");
-          console.error(error);
-        });
-    }
-  </script>
+emailjs.init("M9yY75vz7RwrP2sIZ");
+
+function sendEnquiry() {
+
+  emailjs.sendForm(
+    "service_4ie1aiv",
+    "template_z65tr4k",
+    document.getElementById("enquiryForm")
+  )
+
+  .then(function () {
+    alert("Enquiry sent! We'll get back to you soon.");
+    document.getElementById("enquiryForm").reset();
+  })
+
+  .catch(function (error) {
+    console.log(error);
+    alert("Failed to send enquiry.");
+  });
+}
+</script>
 
 </body>
 </html>
