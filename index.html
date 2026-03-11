@@ -481,6 +481,11 @@
       .footer-top { flex-direction: column; gap: 2rem; }
     }
   </style>
+  <!-- In <head> -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("M9yY75vz7RwrP2sIZ"); // 🔑 Replace with your EmailJS public key
+</script>
 </head>
 <body>
 
@@ -888,26 +893,26 @@
       </div>
     </div>
   </div>
-  <div class="contact-form fade-in">
+  <form id="enquiryForm" class="contact-form fade-in">
     <div class="form-title">Send an Enquiry</div>
     <div class="form-row">
       <div class="form-group">
         <label>Your Name</label>
-        <input type="text" placeholder="Eg. Rajesh Kumar" />
+        <input type="text" name="name" placeholder="Eg. Rajesh Kumar" required />
       </div>
       <div class="form-group">
         <label>Phone Number</label>
-        <input type="tel" placeholder="+91 00000 00000" />
+        <input type="tel" name="phone" placeholder="+91 00000 00000" required />
       </div>
     </div>
     <div class="form-group">
       <label>Email Address</label>
-      <input type="email" placeholder="you@email.com" />
+      <input type="email" name="email" placeholder="you@email.com" required />
     </div>
     <div class="form-row">
       <div class="form-group">
         <label>Destination</label>
-        <select>
+        <select name="destination">
           <option value="">Select destination</option>
           <option>Madurai</option>
           <option>Ooty</option>
@@ -921,7 +926,7 @@
       </div>
       <div class="form-group">
         <label>No. of Travellers</label>
-        <select>
+        <select name="travellers">
           <option>1–2 People</option>
           <option>3–5 People</option>
           <option>6–10 People</option>
@@ -932,10 +937,12 @@
     </div>
     <div class="form-group">
       <label>Message / Special Requests</label>
-      <textarea placeholder="Tell us your travel dates, budget, and any special requirements…"></textarea>
+      <textarea name="message" placeholder="Tell us your travel dates, budget, and any special requirements…"></textarea>
     </div>
-    <button class="submit-btn">Send Enquiry →</button>
-  </div>
+
+    <!-- ✅ STEP 3: Change button to type="button" and add onclick -->
+    <button type="button" class="submit-btn" onclick="sendEnquiry()">Send Enquiry →</button>
+  </form>
 </section>
 
 <!-- FOOTER -->
@@ -1093,5 +1100,20 @@
 
   animate();
 </script>
+
+<script>
+    function sendEnquiry() {
+      emailjs.sendForm("service_4ie1aiv", "template_pbuohuh", "#enquiryForm")
+        .then(() => {
+          alert("Enquiry sent! We'll get back to you soon.");
+          document.getElementById("enquiryForm").reset();
+        })
+        .catch((error) => {
+          alert("Something went wrong. Please try again.");
+          console.error(error);
+        });
+    }
+  </script>
+
 </body>
 </html>
